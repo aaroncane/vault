@@ -1,0 +1,5 @@
+  crearVault:
+    stage: crearVault
+    script:
+      - echo "VAULT TEST"
+      
