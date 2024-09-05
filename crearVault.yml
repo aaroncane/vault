@@ -40,17 +40,17 @@
 
     
 
-    #id_tokens:
-    #  VAULT_ID_TOKEN:
-    #    aud: https://gitlab.funcionpublica.gob.mx
-    #secrets:
-    #    K8S_SECRET_hostv:
-    #      vault: CatVehiculo/prod/CAT_DNET_DATABASE_hostv@catalogos
-    #      file: false
-    #    K8S_SECRET_portv:
-    #      vault: CatVehiculo/prod/CAT_DNET_DATABASE_portv@catalogos
-    #      file: false
-    #artifacts:
-    #  paths:
-    #  - arti_vault.yaml
-    #  expire_in: 1 hour
+    id_tokens:
+      VAULT_ID_TOKEN:
+        aud: https://gitlab.funcionpublica.gob.mx
+    secrets:
+        K8S_SECRET_hostv:
+          vault: CatVehiculo/prod/CAT_DNET_DATABASE_hostv@catalogos
+          file: false
+        K8S_SECRET_portv:
+          vault: CatVehiculo/prod/CAT_DNET_DATABASE_portv@catalogos
+          file: false
+    artifacts:
+      paths:
+      - arti_vault.yaml
+      expire_in: 1 hour
