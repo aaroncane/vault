@@ -1,5 +1,56 @@
-  crearVault:
-    stage: crearVault
+
+  production_manual:
+    stage: production
+    dependencies:
+      - crearVault
+    
+
+    variables:
+      VAULT_SERVER_URL: http://172.27.16.3:8200/
+      VAULT_AUTH_PATH: jwt_v2  # or "jwt" if you used method B
+      VAULT_AUTH_ROLE: myproject-hws
+      GITLAB_TOKEN: XqL12zzz7X6NGJGaxsBe
+    
+    
     script:
-      - echo "VAULT TEST"
-      
+      - echo "ETAPA DESDE ARCHIVO EXTERNO"
+      - echo "fuera produccion github"
+      - echo $K8S_SECRET_hostv
+
+      #- cat arti_vault.yaml
+      #- find . -name creado.yaml
+      #- cat vendor/creado.yaml
+      - cat vaultart/creado.yaml
+
+      - kubectl config use-context $KUBE_CONTEXT
+      - export KUBE_NAMESPACE=$(echo "$CI_PROJECT_NAME" | tr '[:upper:]' '[:lower:]' | tr '_' '-')-$CI_PROJECT_ID-$CI_ENVIRONMENT_SLUG
+
+      - echo $K8S_SECRET_USR
+      - echo $K8S_SECRET_PASS
+      - auto-deploy check_kube_domain
+      - auto-deploy download_chart
+      - auto-deploy use_kube_context || true
+      - auto-deploy ensure_namespace
+      - auto-deploy initialize_tiller
+      - auto-deploy create_secret
+      - auto-deploy deploy
+      - auto-deploy delete canary
+      - auto-deploy persist_environment_url
+      - kubectl get pods -n holamundo-1784-production
+
+    
+
+    #id_tokens:
+    #  VAULT_ID_TOKEN:
+    #    aud: https://gitlab.funcionpublica.gob.mx
+    #secrets:
+    #    K8S_SECRET_hostv:
+    #      vault: CatVehiculo/prod/CAT_DNET_DATABASE_hostv@catalogos
+    #      file: false
+    #    K8S_SECRET_portv:
+    #      vault: CatVehiculo/prod/CAT_DNET_DATABASE_portv@catalogos
+    #      file: false
+    #artifacts:
+    #  paths:
+    #  - arti_vault.yaml
+    #  expire_in: 1 hour
