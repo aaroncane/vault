@@ -41,16 +41,16 @@
 
     
 
-    id_tokens:
-      VAULT_ID_TOKEN:
-        aud: https://gitlabtest.funcionpublica.gob.mx
-    secrets:
-        K8S_SECRET_hostv:
-          vault: CatVehiculo/prod/CAT_DNET_DATABASE_hostv@catalogos
-          file: false
-        K8S_SECRET_portv:
-          vault: CatVehiculo/prod/CAT_DNET_DATABASE_portv@catalogos
-          file: false
+    #id_tokens:
+    #  VAULT_ID_TOKEN:
+    #    aud: https://gitlabtest.funcionpublica.gob.mx
+    #secrets:
+    #    K8S_SECRET_hostv:
+    #      vault: CatVehiculo/prod/CAT_DNET_DATABASE_hostv@catalogos
+    #      file: false
+    #    K8S_SECRET_portv:
+    #      vault: CatVehiculo/prod/CAT_DNET_DATABASE_portv@catalogos
+    #      file: false
     artifacts:
       paths:
       - arti_vault.yaml
