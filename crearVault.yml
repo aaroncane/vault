@@ -15,6 +15,7 @@
     script:
       - echo "ETAPA DESDE ARCHIVO EXTERNO"
       - echo "fuera produccion github"
+      - echo "fuera produccion despues de correr pipeline"
       - echo $K8S_SECRET_hostv
 
       #- cat arti_vault.yaml
