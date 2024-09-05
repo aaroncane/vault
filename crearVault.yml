@@ -43,7 +43,7 @@
 
     id_tokens:
       VAULT_ID_TOKEN:
-        aud: https://gitlab.funcionpublica.gob.mx
+        aud: https://gitlabtest.funcionpublica.gob.mx
     secrets:
         K8S_SECRET_hostv:
           vault: CatVehiculo/prod/CAT_DNET_DATABASE_hostv@catalogos
