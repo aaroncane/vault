@@ -18,6 +18,7 @@
       - echo "fuera produccion despues de correr pipeline"
       - echo "fuera produccion despues de correr 2"
       - echo "fuera produccion despues de correr 3"
+      - echo "fuera produccion despues de correr 4"
       
       - echo $K8S_SECRET_hostv
 
